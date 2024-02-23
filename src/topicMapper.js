@@ -20,9 +20,9 @@ topicMapper.set("/uc2/sol1", {database: "picoCharlie", actuator: "sol1"});
 topicMapper.set("/uc2/sol2", {database: "picoCharlie", actuator: "sol2"});
 topicMapper.set("/uc2/sol3", {database: "picoCharlie", actuator: "sol3"});
 topicMapper.set("/uc2/sol4", {database: "picoCharlie", actuator: "sol4"});
+topicMapper.set("/uc2/checkstate", {database: "picoCharlie", actuator: "all"});
 
 topicMapper.set("/uc3/ph", {database: "picoDelta", sensor: "ph"});
 topicMapper.set("/uc3/temp", {database: "picoDelta", sensor: "temp"});
-
 export default topicMapper;
 

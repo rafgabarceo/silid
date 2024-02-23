@@ -1,5 +1,6 @@
 import topicMapper from "./src/topicMapper.js"; 
 import mqtt from "mqtt";
+import stateMap from "./src/stateMapper.js";
 
 const mqttHost = process.env.MQTT_HOST;
 const actuatorTopics = [];
@@ -9,38 +10,8 @@ topicMapper.forEach((topic, key, map) => {
     if(topic.database === "picoCharlie") actuatorTopics.push(key)
 });
 
-// This is called when the topic has /toggle
-async function toggleState(topic){
-    try {
-	let payload = {topic: 1};
-	await mqttClient.publishAsync(topic, JSON.stringify({payload}));
-    } catch (err) {
-	console.error(err);
-    }
-}
+actuatorTopics.forEach((topic) => {
+    mqttClient.subscribeAsync(topic);
+});
 
-async function main() {
-    try {
-	mqttClient.on("connect", async () => {
-	    await mqttClient.subscribeAsync(actuatorTopics);
-	    console.log(`Connection established with broker at ${mqttHost}`);
-	});
 
-	mqttClient.on("close", async () => {
-	    console.log("Connection closed!");
-	});
-
-	mqttClient.on("reconnect", async () => {
-	    console.log("Connection re-opened!");
-	});
-
-	mqttClient.on("message", async (topic, message) => {
-		  
-	});
-    } catch (err) {
-	console.error(err);
-	throw new Error(err);
-    }
-}
-
-main();
