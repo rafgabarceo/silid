@@ -71,12 +71,13 @@ stateMap.set(5, {
     "mpump1": 0,
     "mpump2": 0,
     "aer": 0,
-    "rmixer": 0,
+    "rmixer": 1,
     "sol0": 0,
     "sol1": 0,
     "sol2": 0,
     "sol3": 0,
 });
+
 stateMap.set(6, {
     "pump0": 0,
     "pump1": 0,
@@ -86,7 +87,7 @@ stateMap.set(6, {
     "aer": 0,
     "rmixer": 0,
     "sol0": 0,
-    "sol1": 1,
+    "sol1": 0,
     "sol2": 0,
     "sol3": 0,
 });
@@ -99,7 +100,7 @@ stateMap.set(7, {
     "aer": 0,
     "rmixer": 0,
     "sol0": 0,
-    "sol1": 0,
+    "sol1": 1,
     "sol2": 0,
     "sol3": 0,
 });
@@ -113,10 +114,23 @@ stateMap.set(8, {
     "rmixer": 0,
     "sol0": 0,
     "sol1": 0,
+    "sol2": 0,
+    "sol3": 0,
+});
+stateMap.set(9, {
+    "pump0": 0,
+    "pump1": 0,
+    "mpump0": 0,
+    "mpump1": 0,
+    "mpump2": 0,
+    "aer": 0,
+    "rmixer": 0,
+    "sol0": 0,
+    "sol1": 0,
     "sol2": 1,
     "sol3": 1,
 });
-stateMap.set(9, {
+stateMap.set(10, {
     "pump0": 0,
     "pump1": 1,
     "mpump0": 0,
@@ -129,7 +143,7 @@ stateMap.set(9, {
     "sol2": 0,
     "sol3": 0,
 });
-stateMap.set(10, {
+stateMap.set(11, {
     "pump0": 0,
     "pump1": 0,
     "mpump0": 0,

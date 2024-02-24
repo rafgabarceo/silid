@@ -5,6 +5,59 @@ import stateMap from "./src/stateMapper.js";
 const mqttHost = process.env.MQTT_HOST;
 const actuatorTopics = [];
 const mqttClient = mqtt.connect(process.env.MQTT_HOST);
+const topic = "/uc2/state";
+let stateTimer = 0;
+let mixTimer = 0;
+let curr_state = 0;
+let next_state = 0;
+
+
+// Timers
+const s1tos2 = 60*16;
+const s2tos3 = s1tos2 + 60*14;
+const s3tos4 = s2tos3 + 60*4;
+const s4tos5 = s3tos4 + 30;
+const s5loop = 30;
+const s5n = 10;
+const s5tos6 = s5loop * s5n + s4tos5;
+const s6tos7 = s5tos6 + 60*5;
+const s7tos8 = s6tos7 + 60*16;
+const s8tos9 = s7tos8 + 60*40;
+const s9tos10 = s8tos9 + 60*16;
+
+let stateTimerInterval = setInterval(() => {
+    stateTimer++;
+    console.log(stateTimer);
+}, 1000);
+
+setTimeout(() => {
+    clearInterval(stateTimerInterval);
+}, s9tos10+1)
+
+const controlActuators = async (state) => {
+    let actuatorState = JSON.stringify(stateMap.get(state));
+    await mqttClient.publishAsync(actuatorState);
+}
+
+const changeState = () => {
+    if(stateTimer > s1tos2) controlActuators(1);
+    if(stateTimer > s2tos3) controlActuators(2);
+    if(stateTimer > s3tos4) controlActuators(3);
+    if(stateTimer > s4tos5) controlActuators(4);
+    if(stateTimer > s5tos6) {
+	for(let i = 0; i < s5n; i++) {
+	    setTimeout(() => {
+			
+	    }, 30000)
+	}
+    };
+    if(stateTimer > s1tos2) controlActuators(6);
+    if(stateTimer > s1tos2) controlActuators(7);
+    if(stateTimer > s1tos2) controlActuators(8);
+    if(stateTimer > s1tos2) controlActuators(9);
+    if(stateTimer > s1tos2) controlActuators(10);
+    if(stateTimer > s1tos2) controlActuators(11);
+}
 
 topicMapper.forEach((topic, key, map) => {
     if(topic.database === "picoCharlie") actuatorTopics.push(key)
@@ -13,5 +66,4 @@ topicMapper.forEach((topic, key, map) => {
 actuatorTopics.forEach((topic) => {
     mqttClient.subscribeAsync(topic);
 });
-
 
