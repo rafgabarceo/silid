@@ -40,23 +40,7 @@ const controlActuators = async (state) => {
 }
 
 const changeState = () => {
-    if(stateTimer > s1tos2) controlActuators(1);
-    if(stateTimer > s2tos3) controlActuators(2);
-    if(stateTimer > s3tos4) controlActuators(3);
-    if(stateTimer > s4tos5) controlActuators(4);
-    if(stateTimer > s5tos6) {
-	for(let i = 0; i < s5n; i++) {
-	    setTimeout(() => {
-			
-	    }, 30000)
-	}
-    };
-    if(stateTimer > s1tos2) controlActuators(6);
-    if(stateTimer > s1tos2) controlActuators(7);
-    if(stateTimer > s1tos2) controlActuators(8);
-    if(stateTimer > s1tos2) controlActuators(9);
-    if(stateTimer > s1tos2) controlActuators(10);
-    if(stateTimer > s1tos2) controlActuators(11);
+    
 }
 
 topicMapper.forEach((topic, key, map) => {
