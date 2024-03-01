@@ -12,18 +12,18 @@ let curr_state = 0;
 let next_state = 0;
 
 
-// Timers
-const s1tos2 = 60*16;
-const s2tos3 = s1tos2 + 60*14;
-const s3tos4 = s2tos3 + 60*4;
-const s4tos5 = s3tos4 + 30;
-const s5loop = 30;
-const s5n = 10;
-const s5tos6 = s5loop * s5n + s4tos5;
-const s6tos7 = s5tos6 + 60*5;
-const s7tos8 = s6tos7 + 60*16;
-const s8tos9 = s7tos8 + 60*40;
-const s9tos10 = s8tos9 + 60*16;
+// Timers delay before activation
+const s2tos3 = 60*16;
+const s3tos4 = s2tos3 + 60*14;
+const s4tos5 = s3tos4 + 60*4;
+const s5tos6 = s4tos5 + 30;
+const s6loop = 30;
+const s6n = 10;
+const s6tos7 = s6loop * s6n + s5tos6;
+const s7tos8 = s6tos7 + 60*5;
+const s8tos9 = s7tos8 + 60*16;
+const s9tos10 = s8tos9 + 60*40;
+const s10tos11 = s9tos10 + 60*16;
 
 let stateTimerInterval = setInterval(() => {
     stateTimer++;
