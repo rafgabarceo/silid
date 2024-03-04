@@ -117,12 +117,13 @@ mqttClient.on("message", (incomingTopic, message) => {
 	}
     })
     if(incomingTopic === startTopic) {
+	console.log("Got start.")
 	if(started !== true) {
 	console.log("Recieved start. Setting in progress state.");
 	    started = true;
 	    startSystemTick();
 	} else {
-
+	    console.log("State already started");
 	}
     } else if(incomingTopic === endTopic) {
 	clearTimeout(timeoutId);
