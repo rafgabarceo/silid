@@ -11,7 +11,7 @@ stateMap.set(0, {
     "sol1": 0,
     "sol2": 0,
     "sol3": 0,
-    "sol4": 0,
+    "sol4": 1,
 });
 stateMap.set(1, {
     "pump0": 0,
@@ -25,7 +25,7 @@ stateMap.set(1, {
     "sol1": 0,
     "sol2": 0,
     "sol3": 0,
-    "sol4": 1,
+    "sol4": 0,
 });
 stateMap.set(2, {
     "pump0": 0,
@@ -76,7 +76,7 @@ stateMap.set(5, {
     "mpump1": 0,
     "mpump2": 0,
     "aer": 0,
-    "rmixer": 1,
+    "rmixer": 0,
     "sol0": 0,
     "sol1": 0,
     "sol2": 0,
