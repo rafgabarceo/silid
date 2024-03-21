@@ -12,13 +12,12 @@ const endTopic = process.env.MQTT_END_TOPIC;
 const heartbeatTopic = process.env.MQTT_HEARTBEAT_TOPIC;
 let started = false;
 let timeoutId;
-
 console.log(`Listening at ${mqttHost}`);
 
 //  Timers delay before activation
 const s2tos3 = 60*18;
 const s3tos4 = s2tos3 + 60*14;
-const s4tos5 = s3tos4 + 60*6;
+const s4tos5 = s3tos4 + 60*10;
 const s5tos6 = s4tos5 + 10;
 const s6tos7 = s5tos6 + 20;
 const s7tos8 = s6tos7 + 60*5;
@@ -68,10 +67,10 @@ function startSystemTick() {
 	} else if(inRange(tick, s4tos5, s5tos6)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(5)));
 	     console.log("State is 5");
-	} else if(inRange(tick, s6tos7, s7tos8)) {
+	} else if(inRange(tick, s5tos6, s6tos7)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(6)));
 	     console.log("State is 6");
-	} else if(inRange(tick, s7tos8, s8tos9)) {
+	} else if(inRange(tick, s6tos7, s7tos8)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(7)));
 	     console.log("State is 7");
 	} else if(inRange(tick, s8tos9, s9tos10)) {
