@@ -58,31 +58,31 @@ function startSystemTick() {
 	if(inRange(tick, 0, s2tos3)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(2)));
 	    console.log("State is 2")
-	} else if(inRange(tick, s2tos3, s3tos4)) {
+	} else if(inRange(tick, s2tos3+1, s3tos4)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(3)));
 	    console.log("State is 3");
-	} else if(inRange(tick, s3tos4, s4tos5)) {
+	} else if(inRange(tick, s3tos4+1, s4tos5)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(4)));
 	     console.log("State is 4");
-	} else if(inRange(tick, s4tos5, s5tos6)) {
+	} else if(inRange(tick, s4tos5+1, s5tos6)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(5)));
 	     console.log("State is 5");
-	} else if(inRange(tick, s5tos6, s6tos7)) {
+	} else if(inRange(tick, s5tos6+1, s6tos7)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(6)));
 	     console.log("State is 6");
-	} else if(inRange(tick, s6tos7, s7tos8)) {
+	} else if(inRange(tick, s6tos7+1, s7tos8)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(7)));
 	     console.log("State is 7");
-	} else if(inRange(tick, s8tos9, s9tos10)) {
+	} else if(inRange(tick, s7tos8+1, s8tos9)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(8)));
 	     console.log("State is 8");
-	} else if(inRange(tick, s9tos10, s10tos11)) {
+	} else if(inRange(tick, s8tos9+1, s9tos10)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(9)));
 	     console.log("State is 9");
-	} else if(inRange(tick, s10tos11, s11tos12)) {
+	} else if(inRange(tick, s9tos10+1, s10tos11)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(10)));
 	     console.log("State is 10");
-	} else if(inRange(tick, s11tos12, endstate)) {
+	} else if(inRange(tick, s10tos11+1, s11tos12)) {
 	    mqttClient.publish(topic, JSON.stringify(stateMap.get(11)));
 	    console.log("State is 11")
 	} else if(tick > endstate) {
